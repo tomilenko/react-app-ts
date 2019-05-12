@@ -38,3 +38,32 @@
 	margin: 0;
 	padding: 0;
 }
+
+.MovieCard {
+	max-width: 350px;
+}
+
+.Movies-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Movies-list_item {
+	flex-grow: 1;
+	width: 20%;
+	margin: 2%
+	/* height: 100px; */
+}
+
+.MovieCard-title {
+	height: 60px;
+}
+
+.MovieCard-overview {
+	height: 100px;
+	overflow: hidden;
+	padding: 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+    overflow: hidden;
+}

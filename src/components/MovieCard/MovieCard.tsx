@@ -15,6 +15,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 class MovieCard extends React.Component<IMovieCardProps, IMovieCardState> {
+
 	constructor(props: IMovieCardProps) {
 		super(props);
 		this.state = {};
@@ -35,23 +36,22 @@ class MovieCard extends React.Component<IMovieCardProps, IMovieCardState> {
 						title="Contemplative Reptile"
 					/>
 					<CardContent>
-						<Typography gutterBottom variant="h5" component="h2">
-							Lizard
+						<Typography gutterBottom variant="h5" component="h2" className="MovieCard-title">
+							{this.props.item.title}
           				</Typography>
-						<Typography component="p">
-							Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-							across all continents except Antarctica
-          				</Typography>
+						{/* <Typography component="p" className="MovieCard-overview">
+							{this.props.item.overview}
+          				</Typography> */}
 					</CardContent>
 				</CardActionArea>
-				<CardActions>
+				{/* <CardActions>
 					<Button size="small" color="primary">
 						Share
         			</Button>
 					<Button size="small" color="primary">
 						Learn More
 					</Button>
-				</CardActions>
+				</CardActions> */}
 			</Card>
 		);
 	}
