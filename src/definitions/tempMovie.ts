@@ -1,4 +1,4 @@
-import { IMovie } from "../components/interfaces/IMovie";
+import { IMovie } from "../interfaces/IMovie";
 
 export const tempMovie: IMovie = {
 	"vote_count": 4845, 

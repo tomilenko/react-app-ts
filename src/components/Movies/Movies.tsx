@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { IMoviesState } from './IMoviesState';
 import { IMoviesProps } from './IMoviesProps';
-import MoviesService from '../../services/MoviesService';
+import MoviesAPI from '../../api/MoviesAPI';
 import MovieCard from '../MovieCard/MovieCard';
 import { tempMovie } from '../../definitions/tempMovie';
-import { IMovie } from "../interfaces/IMovie";
+import { IMovie } from "../../interfaces/IMovie";
 
 class Movies extends React.Component<IMoviesProps, IMoviesState> {
 
@@ -14,7 +14,7 @@ class Movies extends React.Component<IMoviesProps, IMoviesState> {
 	}
 
 	discover = () => {
-		let mService = new MoviesService();
+		let mService = new MoviesAPI();
 		mService.discoverMovies().then((data: [IMovie]) => {
 			console.warn(data);
 			this.setState({

@@ -1,4 +1,4 @@
-import config from '../configs/config.json';
+import { MovieDB } from '../configs/config';
 
 const Urls: any = {
 	movies: 'discover/movie',
@@ -6,7 +6,7 @@ const Urls: any = {
   };
 
 const ServiceHelper: any = {
-	makeUrl: (url: string) => `${config.movieDb.endpoint}${url}?api_key=${config.movieDb.apiKey}`,
+	makeUrl: (url: string) => `${MovieDB.endpoint}${url}?api_key=${MovieDB.apiKey}`,
 	validate: (res: any) => {
 		if (res.status >= 400) {
 		  throw new Error("Bad response from server");
@@ -15,7 +15,7 @@ const ServiceHelper: any = {
 	  }
 }
 
-export default class MoviesService {
+export default class MoviesAPI {
 	discoverMovies = async () => {
 		return await fetch(ServiceHelper.makeUrl(Urls.movies))
 			.then((res) => ServiceHelper.validate(res))
