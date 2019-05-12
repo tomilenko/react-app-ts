@@ -50,7 +50,7 @@
 
 .Movies-list_item {
 	flex-grow: 1;
-	width: 20%;
+	width: 13%;
 	margin: 2%
 	/* height: 100px; */
 }
@@ -65,5 +65,64 @@
 	padding: 10px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-    overflow: hidden;
+	overflow: hidden;
+}
+
+.MovieDetails {
+	width: 50%;
+	position: absolute;
+	top: 100px;
+	left: calc(50% / 2);
+	/* background-color: #ffffff; */
+	padding: 20px;
+}
+
+.MovieDetails-title {
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.MovieDetails-paper {
+	padding: 30px;
+	text-align: center;
+}
+
+.MovieDetails-overview {
+	padding: 10px 0;
+	display: flex;
+}
+
+.MovieDetails-release {
+	padding: 10px 0;
+}
+
+.MovieDetails-overview-image {
+	/* width: 300px; */
+}
+
+.MovieDetails-overview-description {
+	/* padding: 0 20px; */
+	text-align: left;
+	padding-left: 30px;
+}
+
+.MovieDetails-rating {
+	padding: 10px 0;
+}
+
+.MovieDetails-rating i {
+	font-weight: bold;
+}
+
+.MovieDetails-overview-text {
+	padding: 10px 0;
+}
+
+.MovieDetails-backdrop {
+	padding: 10px 0;
+}
+
+.MovieDetails-backdrop img {
+	width: 100%
 }

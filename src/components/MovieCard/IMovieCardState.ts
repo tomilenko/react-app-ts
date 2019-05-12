@@ -1,1 +1,3 @@
-export interface IMovieCardState {}
+export interface IMovieCardState {
+	modalOpen: boolean
+}

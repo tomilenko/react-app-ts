@@ -73,8 +73,10 @@ const styles = (theme: Theme) =>
 
 export interface Props extends WithStyles<typeof styles> { }
 
-function SearchAppBar(props: Props) {
+const SearchAppBar = (props: Props) => {
+
 	const { classes } = props;
+
 	return (
 		<div className={classes.root}>
 			<AppBar position="static">
@@ -96,6 +98,7 @@ function SearchAppBar(props: Props) {
 								root: classes.inputRoot,
 								input: classes.inputInput,
 							}}
+
 						/>
 					</div>
 				</Toolbar>
