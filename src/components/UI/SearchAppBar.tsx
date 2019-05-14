@@ -9,6 +9,22 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Pages } from '../../configs/pages'
+import HomePage from '../../pages/HomePage';
+import AboutPage from '../../pages/AboutPage';
+import MoviesPage from '../../pages/MoviesPage';
+
+const drawerWidth = 240;
 
 const styles = (theme: Theme) =>
 	createStyles({
@@ -69,20 +85,48 @@ const styles = (theme: Theme) =>
 				},
 			},
 		},
+		drawer: {
+			width: drawerWidth,
+			flexShrink: 0,
+		  },
+		  drawerPaper: {
+			width: drawerWidth,
+		  },
+		  drawerHeader: {
+			display: 'flex',
+			alignItems: 'center',
+			padding: '0 8px',
+			...theme.mixins.toolbar,
+			justifyContent: 'flex-end',
+		  },
 	});
 
 export interface Props extends WithStyles<typeof styles> { }
 
+const searchHandler = () => {
+
+}
+
 const SearchAppBar = (props: Props) => {
 
 	const { classes } = props;
+
+	const [open, setOpen] = React.useState(false);
+
+	function handleDrawerOpen() {
+		setOpen(true);
+	}
+
+	function handleDrawerClose() {
+		setOpen(false);
+	}
 
 	return (
 		<div className={classes.root}>
 			<AppBar position="static">
 				<Toolbar>
 					<IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-						<MenuIcon />
+						<MenuIcon onClick={handleDrawerOpen} />
 					</IconButton>
 					<Typography className={classes.title} variant="h6" color="inherit" noWrap>
 						Movies API Demo
@@ -98,11 +142,36 @@ const SearchAppBar = (props: Props) => {
 								root: classes.inputRoot,
 								input: classes.inputInput,
 							}}
-
 						/>
 					</div>
 				</Toolbar>
 			</AppBar>
+			<Drawer
+				className={classes.drawer}
+				variant="persistent"
+				anchor="left"
+				open={open}
+				classes={{
+					paper: classes.drawerPaper,
+				}}
+			>
+				<div className={classes.drawerHeader}>
+					<IconButton onClick={handleDrawerClose}>
+						<ChevronLeftIcon />
+					</IconButton>
+				</div>
+				<Divider />
+				<List>
+					{Pages.map((page, index) => (
+						<Link to={page.route}>
+							<ListItem button key={page.name}>
+								<ListItemIcon>{1 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+								<ListItemText primary={page.name} />
+							</ListItem>
+						</Link>
+					))}
+					</List>
+			</Drawer>
 		</div>
 	);
 }

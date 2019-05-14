@@ -4,8 +4,6 @@ import { IMovieDetailsProps } from './IMovieDetailsProps';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
-import { withStyles } from '@material-ui/core/styles';
 import MovieUtils from "../../utils/MovieUtils";
 
 class MovieDetails extends React.Component<IMovieDetailsProps, IMovieDetailsState> {

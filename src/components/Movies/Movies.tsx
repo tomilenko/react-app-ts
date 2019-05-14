@@ -28,7 +28,6 @@ class Movies extends React.Component<IMoviesProps, IMoviesState> {
 	render = (): JSX.Element => {
 		return (
 			<div className="Movies">
-				<h2>Movies</h2>
 				<ul className="Movies-list">
 					{this.state.items.map( (item: IMovie) => (
 						<li className="Movies-list_item">

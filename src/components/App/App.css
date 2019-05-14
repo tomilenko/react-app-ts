@@ -57,6 +57,7 @@
 
 .MovieCard-title {
 	height: 60px;
+	font-size: 20px !important;
 }
 
 .MovieCard-overview {

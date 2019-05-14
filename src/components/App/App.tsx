@@ -1,14 +1,21 @@
 import React from 'react';
 import './App.css';
-// import Button from '@material-ui/core/Button';
 import SearchAppBar from '../../components/UI/SearchAppBar';
-import Movies from "../../components/Movies/Movies";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomePage from '../../pages/HomePage';
+import AboutPage from '../../pages/AboutPage';
+import MoviesPage from '../../pages/MoviesPage';
 
 const App: React.FC = () => {
 	return (
 		<div className="App">
-			<SearchAppBar />
-			<Movies />
+			<Router>
+				<SearchAppBar />
+
+				<Route exact path="/" component={HomePage} />
+				<Route path="/about" component={AboutPage} />
+				<Route path="/movies" component={MoviesPage} />
+			</Router>
 		</div>
 	);
 }
