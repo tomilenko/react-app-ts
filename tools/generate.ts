@@ -12,5 +12,17 @@ generateTemplateFiles([
             path: './src/components/__component__(pascalCase).tsx',
             pathAndFileNameDefaultCase: '(kebabCase)',
         },
+	},
+	{
+        option: 'Create React Page',
+        defaultCase: '(pascalCase)',
+        entry: {
+            folderPath: './tools/templates/__page__Page.tsx',
+        },
+        stringReplacers: ['__page__'],
+        output: {
+            path: './src/pages/__page__(pascalCase)Page.tsx',
+            pathAndFileNameDefaultCase: '(kebabCase)',
+        },
     },
 ]);
